@@ -27,7 +27,7 @@ Scenes lets you place drawtext anywhere in the world, through the NUI menu, and 
 ### Deletion Laser
 ![Deletion Laser](https://i.imgur.com/1KXEcN0.png)
 ## Video Example
-![Video Example](https://i.imgur.com/5VSfTke.png)](https://i.imgur.com/jfTlu9B.mp4)
+[![Video Example](https://i.imgur.com/5VSfTke.png)](https://i.imgur.com/jfTlu9B.mp4)
 
 
 # Change Log
