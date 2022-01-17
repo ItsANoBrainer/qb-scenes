@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.text-field { color: #fff!important; }
+.text-sliderb { color: #70f145!important; }
+.text-slider { color: #ffffffb3!important; }
+.bg-button { background: #70f145!important; }
+.bg-buttondel { background: #ff3737!important; }
+.bg-buttoncancel { background: rgb(255, 216, 42)!important; }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none!important; margin: 0; }
+div#q-loading-bar { display: none!important; }
+::-webkit-scrollbar { display: none!important; }
+.q-item__section--avatar { min-width: 40px!important; }
+.q-tab.relative-position.self-stretch.flex.flex-center.text-center.q-tab--inactive.q-focusable.q-hoverable.cursor-pointer { display: none!important; }
+textarea { resize: none!important; }
+.q-slider__pin-text { color: #000!important; font-weight: 600!important; }
+
+div#openmenu {
+  display: none;
+  position: absolute;
+  padding: 1.5vw;
+  width: 20%;
+  min-width: 20%;
+  top: 45%;
+  left: 50%;
+  background: rgb(35, 40, 51);
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+}
+
+.brand-logo {
+  display: block;
+  width: 70%;
+  padding-bottom: 10px;
+}
+
+.slideritem {
+  padding-left: 0px!important; 
+  padding-right: 0px!important; 
+  padding-bottom: 0px!important;
+}
+
+.slidertext {
+  color: #ffffffb3; 
+  margin-top: 0px!important; 
+  font-size: 12px!important;
+}
+
+#title {
+  color: white; 
+  font-size:20px;
+}
