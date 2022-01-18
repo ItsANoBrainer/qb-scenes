@@ -6,11 +6,12 @@ description 'QB-Core Scenes'
 version '1.0.0'
 
 ui_page 'html/index.html'
+
 files {
+	'html/*',
     'html/index.html',
 	'html/app.js',
 	'html/styles.css',
-	'html/logo.png',
 }
 
 client_scripts {
@@ -24,7 +25,9 @@ server_scripts {
 }
 
 shared_scripts {
-	'/shared/config.lua'
+	'@qb-core/shared/locale.lua',
+	'locales/en.lua',
+	'/shared/config.lua',
 }
 
 lua54 'yes'
