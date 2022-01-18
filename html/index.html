@@ -24,7 +24,7 @@
 						</template>
 					</q-input>
 
-					<q-input dark hint="Color of text" v-model="color" class="my-input"
+					<q-input dark hint="Text Color" v-model="color" class="my-input"
 						color="field" label="Color">
 						<template v-slot:prepend>
 							<q-icon name="palette"/>
@@ -51,23 +51,6 @@
 
 					<q-item class="slideritem">
 						<q-item-section avatar>
-							<q-icon color="slider" name="social_distance"/>
-						</q-item-section>
-						<q-item-section>
-							<q-slider dark label-always v-model="viewdistance" :min="1" :max="25" label color="sliderb" />
-						</q-item-section>
-					</q-item>
-					<q-item-label class="slidertext">View Distance</q-item-label>
-
-					<q-select hint="Time before expiration." dark v-model="expiration" :options="expirationOptions" color="field"
-						label="Expiration Time">
-						<template v-slot:prepend>
-							<q-icon name="schedule"/>
-						</template>
-					</q-select>
-
-					<q-item class="slideritem">
-						<q-item-section avatar>
 							<q-icon color="slider" name="title"/>
 						</q-item-section>
 						<q-item-section>
@@ -76,13 +59,30 @@
 					</q-item>
 					<q-item-label class="slidertext">Font style</q-item-label>
 
+					<q-item class="slideritem">
+						<q-item-section avatar>
+							<q-icon color="slider" name="social_distance"/>
+						</q-item-section>
+						<q-item-section>
+							<q-slider dark label-always v-model="viewdistance" :min="1" :max="25" label color="sliderb" />
+						</q-item-section>
+					</q-item>
+					<q-item-label class="slidertext">View Distance</q-item-label>
+
+					<q-select hint="Expiration Time" dark v-model="expiration" :options="expirationOptions" color="field"
+						label="Expiration Time">
+						<template v-slot:prepend>
+							<q-icon name="schedule"/>
+						</template>
+					</q-select>
+
 					<div class="row justify-center">
 						<q-btn style="margin-right: 1vh;" class="Close" label="Create" type="submit" text-color="black"
 							color="button"></q-btn>
 						<q-btn v-on:click="onDelete()" style="margin-right: 1vh;" class="delete" label="Delete"
 							text-color="black" color="buttondel"></q-btn>
-						<q-btn v-on:click="onCancel()" style="margin-right: 1vh;" class="cancel" label="Cancel"
-							text-color="black" color="buttoncancel"></q-btn>
+						<q-btn v-on:click="onReset()" style="margin-right: 1vh;" class="cancel" label="Reset"
+							text-color="black" color="buttonreset"></q-btn>
 					</div>
 				</q-form>
 			</div>

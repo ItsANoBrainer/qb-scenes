@@ -53,8 +53,7 @@ const app = Vue.createApp({
 				SendPostRequest('DeleteLaser')
 				CloseMenu()
 			},
-			onCancel() {
-				CloseMenu()
+			onReset() {
 				text.value = null
 				color.value = '#ffffff'
 				expiration.value = '1 hour'

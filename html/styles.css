@@ -5,7 +5,7 @@
 .text-slider { color: #ffffffb3!important; }
 .bg-button { background: #70f145!important; }
 .bg-buttondel { background: rgb(220 20 60)!important; }
-.bg-buttoncancel { background: rgb(106, 106, 106)!important; }
+.bg-buttonreset { background: rgb(106, 106, 106)!important; }
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none!important; margin: 0; }
 div#q-loading-bar { display: none!important; }
 ::-webkit-scrollbar { display: none!important; }
