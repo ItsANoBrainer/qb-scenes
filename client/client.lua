@@ -57,6 +57,7 @@ RegisterKeyMapping('deletescene', 'Delete Scene', 'keyboard', Config.DeleteScene
 
 RegisterCommand('createscene', function()
     OpenMenu()
+    TriggerServerEvent("InteractSound_SV:PlayOnSource", "monkeyopening", 0.05)
 end)
 
 RegisterCommand('deletescene', function()
@@ -65,6 +66,7 @@ end)
 
 RegisterNUICallback('CloseMenu', function()
     CloseMenu()
+    TriggerServerEvent("InteractSound_SV:PlayOnSource", "catclosing", 0.05)
 end) 
 
 RegisterNUICallback('DeleteLaser', function()
@@ -130,7 +132,7 @@ function ToggleCreationLaser(data)
                     if hit then
                         TriggerServerEvent('qb-scenes:server:CreateScene', data)
                     else
-                        QBCore.Functions.Notify('Laser did not hit anything. Try again.', 'error')
+                        QBCore.Functions.Notify(Lang:t("notify.laser_error"), "error")
                     end
                 elseif IsControlJustReleased(0, 47) then
                     creationLaser = false
@@ -157,7 +159,7 @@ function ToggleDeletionLaser()
                     if hit then
                         DeleteScene(coords)
                     else
-                        QBCore.Functions.Notify('Laser did not hit anything. Try again.', 'error')
+                        QBCore.Functions.Notify(Lang:t("notify.laser_error"), "error")
                     end
                 elseif IsControlJustReleased(0, 47) then
                     deletionLaser = false
@@ -182,10 +184,10 @@ function DeleteScene(coords)
     end
 
     if closestScene then
-        QBCore.Functions.Notify('You deleted the scene.', 'success')
+        QBCore.Functions.Notify(Lang:t("notify.scene_delete"), "success")
         TriggerServerEvent('qb-scenes:server:DeleteScene', closestScene)
     else
-        QBCore.Functions.Notify('No scene was close enough.', 'error')
+        QBCore.Functions.Notify(Lang:t("notify.scene_error"), "error")
     end
 end
 
