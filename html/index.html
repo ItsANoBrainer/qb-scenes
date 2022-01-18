@@ -13,22 +13,21 @@
 
 <body>
 	<div id="openmenu">
-		<div class="row justify-center" id='title'><img class="brand-logo" src="./logo.png"></img></div>
-		<div class="row justify-center" id='title'>Scenes</div>
+		<div class="row justify-center" id='title'><img class="brand-logo" src="./brand-logo.svg"></img></div>
 		<div id="menu">
 			<div class="q-mb-md">
 				<q-form @submit="onSubmit" class="q-gutter-md">
 					<q-input dark hint="Markdown supported (i.e. &lt;b>, &lt;i>)" type="textarea" rows="1"
 						v-model="text" class="text" color="field" v-model="text" label="Text">
 						<template v-slot:prepend>
-							<q-icon name="create" />
+							<q-icon name="create"/>
 						</template>
 					</q-input>
 
 					<q-input dark hint="Color of text" v-model="color" class="my-input"
 						color="field" label="Color">
 						<template v-slot:prepend>
-							<q-icon name="palette" />
+							<q-icon name="palette"/>
 						</template>
 						<template v-slot:append>
 							<q-icon name="colorize" class="cursor-pointer">
@@ -41,7 +40,7 @@
 
 					<q-item class="slideritem">
 						<q-item-section avatar>
-							<q-icon color="slider" name="format_size" />
+							<q-icon color="slider" name="format_size"/>
 						</q-item-section>
 						<q-item-section>
 							<q-slider dark label-always v-model="fontsize" :min="0.1" :max="2.0" :Step="0.1" label color="sliderb" />
@@ -52,7 +51,7 @@
 
 					<q-item class="slideritem">
 						<q-item-section avatar>
-							<q-icon color="slider" name="social_distance" />
+							<q-icon color="slider" name="social_distance"/>
 						</q-item-section>
 						<q-item-section>
 							<q-slider dark label-always v-model="viewdistance" :min="1" :max="25" label color="sliderb" />
@@ -60,19 +59,19 @@
 					</q-item>
 					<q-item-label class="slidertext">View Distance</q-item-label>
 
-					<q-select hint="Time before expiration." dark v-model="expiration" :options="expirationOptions"
+					<q-select hint="Time before expiration." dark v-model="expiration" :options="expirationOptions" color="field"
 						label="Expiration Time">
 						<template v-slot:prepend>
-							<q-icon name="schedule" />
+							<q-icon name="schedule"/>
 						</template>
 					</q-select>
 
 					<q-item class="slideritem">
 						<q-item-section avatar>
-							<q-icon color="slider" name="title" />
+							<q-icon color="slider" name="title"/>
 						</q-item-section>
 						<q-item-section>
-							<q-slider dark label-always v-model="fontstyle" :min="1" :max="5" label color="sliderb" />
+							<q-slider dark label-always v-model="fontstyle" :min="1" :max="5" label color="sliderb"/>
 						</q-item-section>
 					</q-item>
 					<q-item-label class="slidertext">Font style</q-item-label>
