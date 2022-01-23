@@ -9,6 +9,7 @@ local closestScenes = {}
 
 local creationLaser = false
 local deletionLaser = false
+local permissionLevel = nil
 
 -----------------------
 ----   Threads     ----
@@ -56,13 +57,22 @@ RegisterKeyMapping('createscene', 'Create Scene', 'keyboard', Config.CreateScene
 RegisterKeyMapping('deletescene', 'Delete Scene', 'keyboard', Config.DeleteSceneKey)
 
 RegisterCommand('createscene', function()
+    Wait(50)
+    if (Config.AdminOnly and permissionLevel == 'user') then 
+        TriggerEvent('QBCore:Notify', 'Must be an Admin to use create laser', 'error')
+        return 
+    end
     OpenMenu()
     TriggerServerEvent("InteractSound_SV:PlayOnSource", "monkeyopening", 0.05)
 end)
 
-RegisterCommand('deletescene', function()
+RegisterNUICallback('deletescene', function()
+    Wait(50)
+    deleteLaser = not deleteLaser
+    showMenu = false
+    SetNuiFocus(false, false)
     ToggleDeletionLaser()
-end)
+end) 
 
 RegisterNUICallback('CloseMenu', function()
     CloseMenu()
@@ -86,11 +96,18 @@ end)
 
 RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     GetScenes()
+    QBCore.Functions.TriggerCallback('qb-scenes:server:GetPermissions', function(permission)
+        permissionLevel = permission
+    end)
 end)
 
 AddEventHandler('onResourceStart', function(resourceName)
     if resourceName == GetCurrentResourceName() then
+        Wait(2000)
         GetScenes()
+        QBCore.Functions.TriggerCallback('qb-qb-scenes:server:GetPermissions', function(permission)
+            permissionLevel = permission
+        end)
     end
 end)
 
