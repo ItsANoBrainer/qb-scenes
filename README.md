@@ -48,3 +48,25 @@ Scenes lets you place drawtext anywhere in the world, through the NUI menu, and 
 * Add background settings (Type, height/width, color, opacity, x/y location, rotation)
 * Add interaction function when E is pressed nearby. This will let users bind any command on press.
 * Be able to preview your changes live on the screen instead of having to submit and check
+
+# Other Creations
+* [qb-racing](https://github.com/ItsANoBrainer/qb-racing)
+
+
+# License
+
+    QB Racing
+    Copyright (C) 2022
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>
