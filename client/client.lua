@@ -177,7 +177,7 @@ function DeleteScene(coords)
     for i=1,#scenes do
         local currentScene = scenes[i]
         local distance =  #(coords - currentScene.coords)
-        if distance < 1 and (closestDistance == nil or distance < shortestDistance) then
+        if distance < 1 and (shortestDistance == nil or distance < shortestDistance) then
             closestScene = currentScene.id
             shortestDistance = distance
         end
