@@ -105,7 +105,7 @@ AddEventHandler('onResourceStart', function(resourceName)
     if resourceName == GetCurrentResourceName() then
         Wait(2000)
         GetScenes()
-        QBCore.Functions.TriggerCallback('qb-qb-scenes:server:GetPermissions', function(permission)
+        QBCore.Functions.TriggerCallback('qb-scenes:server:GetPermissions', function(permission)
             permissionLevel = permission
         end)
     end
