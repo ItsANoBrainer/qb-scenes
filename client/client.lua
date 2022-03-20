@@ -9,7 +9,7 @@ local closestScenes = {}
 
 local creationLaser = false
 local deletionLaser = false
-local permissionLevel = nil
+local permissionLevel = 'user'
 
 -----------------------
 ----   Threads     ----
