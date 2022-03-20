@@ -57,7 +57,6 @@ RegisterKeyMapping('createscene', 'Create Scene', 'keyboard', Config.CreateScene
 RegisterKeyMapping('deletescene', 'Delete Scene', 'keyboard', Config.DeleteSceneKey)
 
 RegisterCommand('createscene', function()
-    Wait(50)
     if (Config.AdminOnly and permissionLevel == 'user') then 
         TriggerEvent('QBCore:Notify', 'Must be an Admin to use create laser', 'error')
         return 
