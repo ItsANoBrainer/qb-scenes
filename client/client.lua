@@ -65,7 +65,7 @@ RegisterCommand('createscene', function()
     TriggerServerEvent("InteractSound_SV:PlayOnSource", "monkeyopening", 0.05)
 end)
 
-RegisterNUICallback('deletescene', function()
+RegisterCommand('deletescene', function()
     deleteLaser = not deleteLaser
     showMenu = false
     SetNuiFocus(false, false)
