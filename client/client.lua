@@ -66,7 +66,6 @@ RegisterCommand('createscene', function()
 end)
 
 RegisterNUICallback('deletescene', function()
-    Wait(50)
     deleteLaser = not deleteLaser
     showMenu = false
     SetNuiFocus(false, false)
