@@ -12,6 +12,7 @@ Scenes lets you place drawtext anywhere in the world, through the NUI menu, and 
 ## Setup
 1. Import scenes.sql into your database
 2. Adjust values in the `shared/config.lua` file to your likings.
+3. If you want logging add `['scenes'] = 'webhookhere'` to your `qb-logs` webhooks
 
 ## Features
 * Create 3Ddrawtext from an NUI interface and laser pointer system (defaults to 'K')
@@ -35,6 +36,8 @@ Scenes lets you place drawtext anywhere in the world, through the NUI menu, and 
 
 
 ## Change Log
+### 1.08
+* Accepted [PR from Chris Lenga](https://github.com/ItsANoBrainer/qb-scenes/pull/4). Which added qb-logs logging for scenes.
 ### 1.07
 * Accepted [PR from loljoshie](https://github.com/ItsANoBrainer/qb-scenes/pull/1). Which changed around the color scheme of the ui, logo to svg, added sounds, and locale support.
 * Changed close button to a reset button
