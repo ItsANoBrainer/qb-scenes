@@ -19,7 +19,7 @@ Scenes lets you place drawtext anywhere in the world, through the NUI menu, and 
 * Delete scenes with a laser pointer system (defaults to 'DELETE')
 * Customize text, color, view distance, expiration time, font size, font style
 * Ability to preview a scene before finalizing it
-* All scenes are saved in the database 
+* All scenes are saved in the database
 * Scenes are automatically deleted when they expire
 * Markdown, emojis, and multiple lines supported
 * Configurable logo
@@ -36,6 +36,8 @@ Scenes lets you place drawtext anywhere in the world, through the NUI menu, and 
 
 
 ## Change Log
+### 1.09
+* Updated VUE and QUASAR versions to fix weird visual/css bugs. [Issue Report Here](https://github.com/ItsANoBrainer/qb-scenes/issues/5)
 ### 1.08
 * Accepted [PR from Chris Lenga](https://github.com/ItsANoBrainer/qb-scenes/pull/4). Which added qb-logs logging for scenes.
 ### 1.07

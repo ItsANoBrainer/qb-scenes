@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'ItsANoBrainer'
 description 'QB-Core Scenes'
-version '1.0.7'
+version '1.0.9'
 
 ui_page 'html/index.html'
 
