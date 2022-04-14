@@ -24,6 +24,11 @@ QBCore.Functions.CreateCallback('qb-scenes:server:GetScenes', function(source, c
     cb(scenes)
 end)
 
+QBCore.Functions.CreateCallback('qb-scenes:server:GetPermissions', function(source, cb)
+    local permissionLevel = QBCore.Functions.GetPermission(source)
+    cb(permissionLevel)
+end)
+
 -----------------------
 ----   Functions   ----
 -----------------------
