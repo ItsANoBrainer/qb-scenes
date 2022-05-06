@@ -63,20 +63,23 @@ RegisterCommand('deletescene', function()
     ToggleDeletionLaser()
 end, false)
 
-RegisterNUICallback('CloseMenu', function()
+RegisterNUICallback('CloseMenu', function(_, cb)
     CloseMenu()
     TriggerServerEvent("InteractSound_SV:PlayOnSource", "catclosing", 0.05)
+    cb('ok')
 end)
 
-RegisterNUICallback('DeleteLaser', function()
+RegisterNUICallback('DeleteLaser', function(_, cb)
     CloseMenu()
     ToggleDeletionLaser()
+    cb('ok')
 end)
 
 RegisterNUICallback('CreateScene', function(data, cb)
     creationLaser = false
     Wait(100)
     ToggleCreationLaser(data)
+    cb('ok')
 end)
 
 RegisterNetEvent('qb-scenes:client:UpdateAllScenes', function(list)
