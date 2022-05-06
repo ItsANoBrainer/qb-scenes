@@ -3,7 +3,6 @@
 -----------------------
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local showMenu = false
 local scenes = {}
 local closestScenes = {}
 
@@ -58,30 +57,33 @@ RegisterKeyMapping('deletescene', 'Delete Scene', 'keyboard', Config.DeleteScene
 RegisterCommand('createscene', function()
     OpenMenu()
     TriggerServerEvent("InteractSound_SV:PlayOnSource", "monkeyopening", 0.05)
-end)
+end, false)
 
 RegisterCommand('deletescene', function()
     ToggleDeletionLaser()
-end)
+end, false)
 
-RegisterNUICallback('CloseMenu', function()
+RegisterNUICallback('CloseMenu', function(_, cb)
     CloseMenu()
     TriggerServerEvent("InteractSound_SV:PlayOnSource", "catclosing", 0.05)
-end) 
+    cb('ok')
+end)
 
-RegisterNUICallback('DeleteLaser', function()
+RegisterNUICallback('DeleteLaser', function(_, cb)
     CloseMenu()
     ToggleDeletionLaser()
-end) 
+    cb('ok')
+end)
 
 RegisterNUICallback('CreateScene', function(data, cb)
     creationLaser = false
     Wait(100)
     ToggleCreationLaser(data)
+    cb('ok')
 end)
 
-RegisterNetEvent('qb-scenes:client:UpdateAllScenes', function(_scenes)
-    scenes = _scenes
+RegisterNetEvent('qb-scenes:client:UpdateAllScenes', function(list)
+    scenes = list
 end)
 
 RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
@@ -99,19 +101,17 @@ end)
 -----------------------
 
 function GetScenes()
-    QBCore.Functions.TriggerCallback('qb-scenes:server:GetScenes', function(_scenes)
-        scenes = _scenes
+    QBCore.Functions.TriggerCallback('qb-scenes:server:GetScenes', function(list)
+        scenes = list
     end)
 end
 
 function OpenMenu()
-    showMenu = true
     SetNuiFocus(true, true)
-    SendNUIMessage({ action = "open"}) 
+    SendNUIMessage({ action = "open"})
 end
 
 function CloseMenu()
-    showMenu = false
     SetNuiFocus(false, false)
 end
 
@@ -138,7 +138,7 @@ function ToggleCreationLaser(data)
                     creationLaser = false
                     OpenMenu()
                 end
-                
+
                 Wait(0)
             end
         end)
@@ -153,7 +153,7 @@ function ToggleDeletionLaser()
         CreateThread(function()
             while deletionLaser do
                 local hit, coords = DrawLaser('PRESS ~r~E~w~ TO DELETE A SCENE\nPRESS ~r~G~w~ TO CANCEL', {r = 255, g = 0, b = 0, a = 200})
-                
+
                 if IsControlJustReleased(0, 38) then
                     deletionLaser = false
                     if hit then
@@ -198,7 +198,7 @@ function DrawLaser(message, color)
     if hit then
         local position = GetEntityCoords(PlayerPedId())
         DrawLine(position.x, position.y, position.z, coords.x, coords.y, coords.z, color.r, color.g, color.b, color.a)
-        DrawMarker(28, coords.x, coords.y, coords.z, 0.0, 0.0, 0.0, 0.0, 180.0, 0.0, 0.1, 0.1, 0.1, color.r, color.g, color.b, color.a, false, true, 2, nil, nil, false) 
+        DrawMarker(28, coords.x, coords.y, coords.z, 0.0, 0.0, 0.0, 0.0, 180.0, 0.0, 0.1, 0.1, 0.1, color.r, color.g, color.b, color.a, false, true, 2, nil, nil, false)
     end
 
     return hit, coords

@@ -10,7 +10,7 @@ local scenes = {}
 
 CreateThread(function()
     UpdateAllScenes()
-    while true do 
+    while true do
         DeleteExpiredScenes()
         Wait(Config.AuditInterval)
     end
@@ -20,7 +20,7 @@ end)
 ---- Server Events ----
 -----------------------
 
-QBCore.Functions.CreateCallback('qb-scenes:server:GetScenes', function(source, cb)
+QBCore.Functions.CreateCallback('qb-scenes:server:GetScenes', function(_, cb)
     cb(scenes)
 end)
 
@@ -60,19 +60,19 @@ function DeleteExpiredScenes()
 end
 
 RegisterNetEvent('qb-scenes:server:DeleteScene', function(id)
-    MySQL.Async.execute('DELETE FROM scenes WHERE id = ?', {id}, function(result)
+    MySQL.Async.execute('DELETE FROM scenes WHERE id = ?', {id}, function()
         UpdateAllScenes()
     end)
 end)
 
 RegisterNetEvent('qb-scenes:server:CreateScene', function(sceneData)
-    local src = source 
+    local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-        
+
     TriggerEvent("qb-log:server:CreateLog", "scenes", "New Scene Created", "red", "**".. GetPlayerName(source) .. "** (citizenid: *"..Player.PlayerData.citizenid.."* | id: *"..source.."*) created a new scene; scene: **"..sceneData.text.."**, where: **" .. sceneData.coords .. "**")
 
     MySQL.Async.insert('INSERT INTO scenes (creator, text, color, viewdistance, expiration, fontsize, fontstyle, coords, date_creation, date_deletion) VALUES (? ,?, ?, ?, ?, ?, ?, ?, NOW(), DATE_ADD(NOW(), INTERVAL ? HOUR))', {
-        Player.PlayerData.citizenid, 
+        Player.PlayerData.citizenid,
         sceneData.text,
         sceneData.color,
         sceneData.viewdistance,
@@ -81,7 +81,7 @@ RegisterNetEvent('qb-scenes:server:CreateScene', function(sceneData)
         sceneData.fontstyle,
         json.encode(sceneData.coords),
         sceneData.expiration
-    }, function(result)
+    }, function()
         UpdateAllScenes()
     end)
 end)
